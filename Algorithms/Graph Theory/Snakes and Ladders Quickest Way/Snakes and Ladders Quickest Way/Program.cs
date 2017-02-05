@@ -62,15 +62,15 @@ namespace Snakes_and_Ladders_Quickest_Way
 
             return result;
         }
-
        
-        class BreathFisrtTraversal
+        protected class BreathFisrtTraversal
         {
             public int GetResult(Board board)
             {
                 var endNode = board.EndNode;
                 var startNode = board.StartNode;
 
+                List<Node> nodesVisited = new List<Node>();
                 IEnumerable<Node> nodesAtCurrentLevel = new[] { startNode };
                 var numberOfRolls = 0;
 
@@ -78,8 +78,16 @@ namespace Snakes_and_Ladders_Quickest_Way
                 {
                     numberOfRolls++;
 
-                    nodesAtCurrentLevel = GetNodesAtNextLevel(nodesAtCurrentLevel, board).Distinct().ToArray();
+                    nodesAtCurrentLevel = GetNodesAtNextLevel(nodesAtCurrentLevel, board)
+                        .Distinct().Except(nodesVisited).ToArray();
+
+                    nodesVisited.AddRange(nodesAtCurrentLevel);
+
+                    if (!nodesAtCurrentLevel.Any())
+                        return -1;
                 }
+
+
 
                 return numberOfRolls;
             }
@@ -115,7 +123,7 @@ namespace Snakes_and_Ladders_Quickest_Way
         }
 
 
-        class Board
+        protected class Board
         {
             public Node StartNode { get; protected set; }
             public Node EndNode { get; protected set; }
@@ -129,7 +137,7 @@ namespace Snakes_and_Ladders_Quickest_Way
             }
         }
 
-        class Node: IComparable, IComparable<Node>, IEquatable<Node>
+        protected class Node: IComparable, IComparable<Node>, IEquatable<Node>
         {
             public int Square { get; set; }
 
