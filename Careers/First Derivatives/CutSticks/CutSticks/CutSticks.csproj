@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{85718CAE-B0C2-4A1E-A7BE-CD0FF644DC77}</ProjectGuid>
+    <ProjectGuid>{2AF3854E-2D10-4293-B75E-A153D93E39B7}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>First_Derivatives</RootNamespace>
-    <AssemblyName>First Derivatives</AssemblyName>
+    <RootNamespace>CutSticks</RootNamespace>
+    <AssemblyName>CutSticks</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
